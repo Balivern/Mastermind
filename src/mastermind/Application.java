@@ -1,51 +1,74 @@
 package mastermind;
 
+import java.awt.BorderLayout;
 import java.awt.Canvas;
-import java.awt.Color;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Application extends JFrame {
+public class Application extends JFrame implements WindowListener {
 	
-	public JFrame frame;
-	public JPanel vueClavier;
+	Modele modele;
+	JPanel vueClavier;
+	JButton [] boutons;
 	
 	public Application() {
 		
-	this.frame = new JFrame();
+	this.setLayout(new BorderLayout());
+	
+	Canvas vuePropositions = new Canvas();
 	
 	this.vueClavier = new JPanel();
-	JButton bouton_jaune = new JButton();
-	bouton_jaune.setBackground(Modele.COULEURS[0]);
-	JButton bouton_vert = new JButton();
-	bouton_vert.setBackground(Modele.COULEURS[1]);
-	JButton bouton_bleu = new JButton();
-	bouton_bleu.setBackground(Modele.COULEURS[2]);
-	JButton bouton_magenta = new JButton();
-	bouton_magenta.setBackground(Modele.COULEURS[3]);
-	JButton bouton_rouge = new JButton();
-	bouton_rouge.setBackground(Modele.COULEURS[4]);
-	JButton bouton_orange = new JButton();
-	bouton_orange.setBackground(Modele.COULEURS[5]);
-	JButton bouton_blanc = new JButton();
-	bouton_blanc.setBackground(Modele.COULEURS[6]);
-	JButton bouton_noir = new JButton();
-	bouton_noir.setBackground(Modele.COULEURS[7]);
-	this.vueClavier.add(bouton_jaune);
-	this.vueClavier.add(bouton_vert);
-	this.vueClavier.add(bouton_bleu);
-	this.vueClavier.add(bouton_magenta);
-	this.vueClavier.add(bouton_rouge);
-	this.vueClavier.add(bouton_orange);
-	this.vueClavier.add(bouton_blanc);
-	this.vueClavier.add(bouton_noir);
-		
-	Canvas vuePropositions = new Canvas();
+	for (int i=0; i<Modele.COULEURS.length; i++) {
+		this.boutons[i].add(new JButton());
+	}
+	for (int i=0; i<Modele.COULEURS.length; i++) {
+		this.boutons[i].setBackground(Modele.COULEURS[i]);
+	}
+	for (int i=0; i<Modele.COULEURS.length; i++) {
+		this.vueClavier.add(this.boutons[i]);
+	}	
 
 	}
+	
 	public static void main(String[] args) {
 		new Application();
+	}
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowClosing(WindowEvent e) {
+		System.exit(0); 
+	}
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
