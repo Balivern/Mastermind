@@ -45,6 +45,20 @@ public class Rangee {
 		return S;
 	}
 	
+	public void anulation (Rangee r) {
+		if (r.indicejeton<Modele.DIFFICULTE && r.indicejeton>=0) {
+			r.indicejeton--;
+		}
+	}
+	
+	public void ajouter_jeton(Rangee r, Integer i) {
+		if (r.indicejeton<Modele.DIFFICULTE && r.indicejeton>=0) {
+			r.jeton[r.indicejeton]
+		}
+		
+		
+	}
+	
 	public String toString() {
 		String retour="";
 		for (int i = 0; i<jeton.length;i++ ) {

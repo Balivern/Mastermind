@@ -23,9 +23,9 @@ public class Modele {
 	public Modele() {
 		this.etat=Etat.EN_COURS;
 		this.combinaison.aleatoire();
-		this.propositions = new Rangee(this)[N_TENTATIVES];
+		this.propositions = new Rangee[N_TENTATIVES];
 		for (int i = 0; i < N_TENTATIVES; i++) {
-			this.propositions[i] = new Rangee();
+			this.propositions[i] = new Rangee(this);
 			
 		}
 		this.tentative = 0;
@@ -34,14 +34,58 @@ public class Modele {
 		Random rand = new Random();
 		for (int i = 0; i < DIFFICULTE; i++) {
 			int couleurIndice = rand.nextInt(COULEURS.length);
-			this.combinaison.jeton(i,COULEURS[])
+			//this.combinaison.ajouterJeton(i,COULEURS[]);
 		}
 		
+		
+		
+	}
+	
+	
+	public void AjouterProposition(Rangee proposition) {
+		if (etat !=Etat.EN_COURS) {
+			return;
+		}
+		propositions[tentative] = proposition;
+		
+		//if(combinaison.e)
 	}
 	
 	
 	
 	
+	public void verfierPropostion() {
+		int noirs = 0;
+		int blancs = 0;
+		for(int i=0; i<DIFFICULTE; i++) {
+			//if(this.propositions[this.tentative].getJeton(i))==this.combinaison.getJeton(i)){
+				//noirs++;
+			//}else {
+				//for(int j = 0; j<DIFFICULTE;j++) {
+					
+					
+				//}
+			//}
+		//}
+	}
+		
+		
+	// verifier Gange
+		
+		
+		
+	// verifier Perdu
+	
+		
+		
+		
+		
+		
+	
+	
+	
 
 
+}
+	
 }
