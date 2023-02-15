@@ -15,6 +15,7 @@ public class Rangee {
 		this.indicejeton=0;
 		this.jeton = new Color[Modele.DIFFICULTE];
 	}
+	
 	public  Rangee aleatoire() {
 		Rangee solution = new Rangee(this.m);
 		Random r = new Random();
@@ -23,14 +24,27 @@ public class Rangee {
 		}		
 		return solution;
 	}
+	
 	public ArrayList evaluation() {
-		ArrayList<Boolean> S = new ArrayList<Boolean>();
+		ArrayList<Integer> S = new ArrayList<Integer>();
 		for (indicejeton=0;indicejeton<Modele.DIFFICULTE;indicejeton++) {
-			if (this.indicejeton==Modele.combinaison.indicejeton) {
-				
+			if (this.jeton[indicejeton]==this.m.combinaison.jeton[indicejeton]) {
+				S.add(2);
+			}
+			else {
+				for (int j=0;j<Modele.DIFFICULTE;j++) {
+					if (this.jeton[indicejeton]==this.m.combinaison.jeton[j]) {
+						S.add(1);
+					}
+					else {
+						S.add(0);
+					}
+				}
 			}
 		}
+		return S;
 	}
+	
 	public String toString() {
 		String retour="";
 		for (int i = 0; i<jeton.length;i++ ) {
@@ -39,6 +53,7 @@ public class Rangee {
 		return retour;
 		
 	}
+	
 	public static void main(String[] args) {
 	}
 }
