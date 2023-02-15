@@ -26,13 +26,20 @@ public class Rangee {
 	}
 	
 	public ArrayList evaluation() {
-		ArrayList<Boolean> S = new ArrayList<Boolean>();
+		ArrayList<Integer> S = new ArrayList<Integer>();
 		for (indicejeton=0;indicejeton<Modele.DIFFICULTE;indicejeton++) {
-			if (this.indicejeton==this.m.combinaison.indicejeton) {
-				S.add(true);
+			if (this.jeton[indicejeton]==this.m.combinaison.jeton[indicejeton]) {
+				S.add(2);
 			}
 			else {
-				S.add(false);
+				for (int j=0;j<Modele.DIFFICULTE;j++) {
+					if (this.jeton[indicejeton]==this.m.combinaison.jeton[j]) {
+						S.add(1);
+					}
+					else {
+						S.add(0);
+					}
+				}
 			}
 		}
 		return S;
