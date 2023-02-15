@@ -3,6 +3,7 @@ package mastermind;
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
@@ -29,6 +30,8 @@ public class Application extends JFrame implements WindowListener {
 		this.vuePropositions = new Canvas();
 		
 		this.vuePropositions.setBackground(Color.WHITE);
+		
+		this.vuePropositions.repaint();
 		
 		this.vueClavier = new JPanel();
 		
@@ -57,6 +60,12 @@ public class Application extends JFrame implements WindowListener {
 	public static void main(String[] args) {
 		new Application();
 	}
+	/*
+	@Override
+	public void paint(Graphics g) {
+		g.drawOval(10, 10, 20, 20);
+	}
+	*/
 	
 	public void afficher_proposition() {
 		for (int i=0; i<this.modele.propositions.length; i++) {
